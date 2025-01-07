@@ -1,0 +1,29 @@
+# Byte-compiled files
+*.pyc
+__pycache__/
+
+# Environment variables
+*.env
+secret_key.txt
+
+# Database
+db.sqlite3
+
+# Django static and media files
+/static/
+/media/
+
+# Virtual environment
+venv/
+env/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Log files
+*.log
+
+# Node.js dependencies (if used)
+node_modules/

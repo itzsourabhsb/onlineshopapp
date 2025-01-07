@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+  </head>
+  <body>
+    {% load crispy_forms_tags %}
+    <div class="container mt-4">
+      <form method="post">
+        {% csrf_token %}
+        <!-- Basic form rendering without crispy_forms -->
+        {{ form.as_p }}
+      </form>
+    </div>
+  </body>
+</html>

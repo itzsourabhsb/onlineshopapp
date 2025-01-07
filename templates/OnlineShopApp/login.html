@@ -1,0 +1,42 @@
+{% extends "OnlineShopApp/basic.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <!-- Welcome Section -->
+    <div class="welcome-section text-center mb-4">
+        <h1>Welcome to OnlineShopApp 🛒</h1>
+        <p>Your gateway to amazing products and exclusive offers!</p>
+        <p>Log in to explore our diverse range of items, enjoy personalized recommendations, and much more.</p>
+        <p></p>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="login-form-section mb-4">
+        <h2 class="text-center">Happy shopping! 🛍️</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <!-- Use form.as_p for default styling -->
+            {{ form.as_p }}
+
+            <!-- Display error messages -->
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+
+    <!-- Registration Prompt and About Us Section -->
+    <div class="registration-prompt-section text-center mt-4">
+        <p>New to OnlineShopApp? <a href="{% url 'register' %}" class="btn btn-primary" style="background-color: blue; border-color: blue; color: white;">Register Now</a></p>
+       Want to know more about us? <a href="{% url 'about_us' %}" class="btn btn-link">Click here</a>
+    </div>
+</div>
+{% endblock %}

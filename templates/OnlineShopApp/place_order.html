@@ -1,0 +1,13 @@
+{% extends 'OnlineShopApp/basic.html' %}
+{% block title%} Order Confirmation{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="col my-4">
+        <h2>Order Confirmation</h2>
+        <p>Thank you for your order!</p>
+        <p>Your order ID is: <strong>{{ id }}</strong></p>
+        <p>You can track your order using our order tracker.</p>
+        <a href="{% url 'tracker' %}" class="btn btn-primary">Track Order</a>
+    </div>
+</div>
+{% endblock %}

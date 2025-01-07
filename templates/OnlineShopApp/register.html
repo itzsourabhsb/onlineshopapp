@@ -1,0 +1,43 @@
+{% extends "OnlineShopApp/basic.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <!-- Welcome Section -->
+    <div class="welcome-section mb-4">
+        <h1>Join Our Online Shop Community 🛒</h1>
+        <p>Thank you for considering becoming a part of our community! At our Online Shop, we are dedicated to providing you with the best shopping experience. Register now to start enjoying our diverse range of products and exclusive offers.</p>
+
+        <p>By registering, you will gain access to a personalized shopping experience, track your orders easily, and receive updates about our latest products and promotions.</p>
+
+        <p>We are excited to welcome you to our family and look forward to serving your shopping needs!</p>
+    </div>
+
+    <!-- Registration Form Section -->
+    <div class="registration-form-section mb-4">
+        <h2>Register</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <!-- Use form.as_p for default styling -->
+            {{ form.as_p }}
+
+            <!-- Display error messages -->
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+    <!-- Login Prompt Section -->
+    <div class="login-prompt-section mt-4">
+        <p>Already have an account? Please <a href="{% url 'login' %}" class="btn btn-success" style="background-color: green; border-color: green;">Login Here</a> to continue shopping and access your account.</p>
+    </div>
+</div>
+{% endblock %}

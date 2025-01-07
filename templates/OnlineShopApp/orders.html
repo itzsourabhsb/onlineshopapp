@@ -1,0 +1,59 @@
+{% extends 'OnlineShopApp/basic.html' %}
+{% block title%} My Orders {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="col my-4">
+        <h2>Check Your Orders</h2>
+        <form method="post" action="#" id="ordersForm">{% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary">Check Orders</button>
+            </div>
+        </form>
+    </div>
+    <div class="col my-4">
+        <h2>Your Orders</h2>
+        <div class="my-4">
+            <ul class="list-group" id="ordersList">
+                Enter your email and click 'Check Orders' to see your order details.
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+$('#ordersForm').submit(function(event) {
+    $('#ordersList').empty();
+    var formData = {
+        'email': $('input[name=email]').val(),
+        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+    };
+    $.ajax({
+            type: 'POST',
+            url: '{% url "orders" %}', // Make sure this URL matches your URL configuration
+            data: formData,
+            encode: true
+        })
+        .done(function(data) {
+            console.log(data);
+            var response = JSON.parse(data);
+            if (response.orders && response.orders.length > 0) {
+                response.orders.forEach(function(order) {
+                    $('#ordersList').append('<li class="list-group-item"><h5>Order ID: ' + order.order_id + '</h5><ul>');
+                    order.items.forEach(function(item) {
+                        $('#ordersList').append('<li>' + item.text + ' <span class="badge badge-primary badge-pill">' + item.time + '</span></li>');
+                    });
+                    $('#ordersList').append('</ul></li>');
+                });
+            } else {
+                $('#ordersList').append('<li class="list-group-item">You haven\'t placed any orders yet.</li>');
+            }
+        });
+    event.preventDefault();
+});
+</script>
+{% endblock %}

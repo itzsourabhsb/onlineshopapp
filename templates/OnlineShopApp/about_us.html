@@ -1,0 +1,97 @@
+{% extends "OnlineShopApp/basic.html" %}
+
+{% block title %}
+About Us
+{% endblock %}
+
+{% block css %}
+<style>
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    text-align: center;
+    background: linear-gradient(to right, #f0f4f8, #d9e1e8); /* Soft gradient background */
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    border-radius: 12px; /* Rounded corners */
+    max-width: 900px; /* Max width for readability */
+    margin: 0 auto; /* Center horizontally */
+  }
+
+  .about-heading {
+    font-size: 2.5rem; /* Large font size */
+    font-weight: 700; /* Bold text */
+    color: #2c3e50; /* Dark color for text */
+    margin-bottom: 20px; /* Space below heading */
+    text-transform: capitalize; /* Capitalize text */
+  }
+
+  .about-text {
+    font-size: 1.125rem; /* Slightly larger font size for readability */
+    line-height: 1.8; /* Increased line height for better readability */
+    color: #34495e; /* Darker grey color for text */
+    max-width: 800px; /* Limit width for readability */
+    margin: 15px 0; /* Margin around paragraphs */
+    padding: 0 20px; /* Add padding for better spacing */
+  }
+
+  .highlight {
+    color: #e74c3c; /* Red color for highlighting */
+    font-weight: 600; /* Semi-bold text */
+  }
+
+  .emoji {
+    font-size: 2rem; /* Larger emoji size */
+    margin: 0 10px; /* Spacing around emoji */
+  }
+
+  .why-choose-us {
+    margin-top: 40px; /* Space above section */
+  }
+
+  .why-choose-us h2 {
+    font-size: 2rem; /* Heading font size */
+    color: #2c3e50; /* Dark color for heading */
+    margin-bottom: 15px; /* Space below heading */
+  }
+
+  .why-choose-us ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+  }
+
+  .why-choose-us li {
+    font-size: 1.125rem; /* Font size for list items */
+    color: #555; /* Medium gray color */
+    margin: 10px 0; /* Space between items */
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="about-container">
+  <h1 class="about-heading">Welcome to Our Online Shop <span class="emoji">🛍️🛒️</span></h1>
+  <p class="about-text">Your one-stop destination for a diverse range of products designed to meet all your needs! Whether you're looking for the latest trends, essential everyday items, or unique gifts, we've got you covered.</p>
+
+  <p class="about-text">At our <span class="highlight">Online Shop</span>, we believe in offering high-quality products at competitive prices. Our team carefully selects each item in our collection, ensuring that you have access to only the best. We pride ourselves on excellent customer service, fast shipping, and a seamless shopping experience.</p>
+
+  <p class="about-text">We are more than just a store; we are a community. We value our customers and strive to build lasting relationships with each of you. Thank you for choosing us as your preferred online shopping destination. We look forward to serving you!</p>
+
+  <p class="about-text">Explore our shop today and discover why so many people trust us with their shopping needs. Happy shopping! <span class="emoji">😄</span></p>
+
+  <!-- Why Choose Us Section -->
+  <div class="why-choose-us">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>High-Quality Products: Carefully curated selection of top-quality items.</li>
+      <li>Competitive Prices: Great value for money with frequent promotions.</li>
+      <li>Excellent Customer Service: Dedicated support to assist with your needs.</li>
+      <li>Fast Shipping: Quick and reliable delivery to get your products to you faster.</li>
+      <li>Community Focused: Building lasting relationships and trust with our customers.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
